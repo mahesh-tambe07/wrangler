@@ -294,6 +294,13 @@ UnicodeEscape
 
 fragment
    HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
+ 
+// Byte Size and Time Duration Units
+fragment BYTE_UNIT : 'B' | 'KB' | 'MB' | 'GB' | 'TB' ;
+fragment TIME_UNIT : 'ms' | 's' | 'm' | 'h' ;
+
+BYTE_SIZE : Digit+ ('.' Digit+)? BYTE_UNIT ;
+TIME_DURATION : Digit+ ('.' Digit+)? TIME_UNIT ;
 
 Comment
  : ('//' ~[\r\n]* | '/*' .*? '*/' | '--' ~[\r\n]* ) -> skip
